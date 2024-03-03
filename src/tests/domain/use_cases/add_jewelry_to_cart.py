@@ -13,8 +13,6 @@ from tests.core.exceptions import AllureStepError
 
 
 class AddJewelryToCart:
-    browser: Browser
-
     SELECT_JEWELRY_TOPIC = 'select jewelry topic'
     SELECT_FIRST = 'select first item, save price and name'
     SELECT_SECOND = 'select second item, save price and name'
