@@ -1,26 +1,20 @@
 import time
-import allure
-from selenium.webdriver.common.by import By
 import re
 
-from tests.services.utils import (
-    make_driver,
-    make_screenshot,
-)
-from tests.resources.enums import Browser
+import allure
+from selenium.webdriver.common.by import By
+
+from tests.domain.use_cases.base import BaseUseCase
+from tests.services.utils import make_screenshot
 from tests.core.exceptions import AllureStepError
 
 
-class IncludeGiraffe:
+class IncludeGiraffe(BaseUseCase):
     ENTER_GIRAFFE = 'enter giraffe'
     SEARCH_FOR_GIRAFFE = 'search for giraffe'
     GIRAFFE_KEY = 'Жираф'
 
-    def __init__(self, browser: Browser):
-        self.browser = browser
-        self.driver = make_driver(browser=browser)
-
-    def execute(self):
+    def execute(self) -> None:
         with allure.step(self.ENTER_GIRAFFE):
             try:
                 find_bar = self.driver.find_element(

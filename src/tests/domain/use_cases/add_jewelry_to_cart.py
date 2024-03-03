@@ -3,16 +3,15 @@ import allure
 from selenium.webdriver.common.by import By
 import re
 
+from tests.domain.use_cases.base import BaseUseCase
 from tests.services.utils import (
-    make_driver,
     make_screenshot,
     open_drop_down_list,
 )
-from tests.resources.enums import Browser
 from tests.core.exceptions import AllureStepError
 
 
-class AddJewelryToCart:
+class AddJewelryToCart(BaseUseCase):
     SELECT_JEWELRY_TOPIC = 'select jewelry topic'
     SELECT_FIRST = 'select first item, save price and name'
     SELECT_SECOND = 'select second item, save price and name'
@@ -25,10 +24,6 @@ class AddJewelryToCart:
         2: "1126116",
         3: "1125741",
     }
-
-    def __init__(self, browser: Browser):
-        self.browser = browser
-        self.driver = make_driver(browser=browser)
 
     def execute(self):
         open_drop_down_list(browser=self.browser, driver=self.driver)
