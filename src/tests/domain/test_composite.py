@@ -9,13 +9,13 @@ from tests.services.utils import make_story
 
 
 class TestUseCases:
-    @allure.story(make_story(Story.FOURTH, Browser.CHROME))
+    @allure.story(make_story(Story.THIRD, Browser.CHROME))
     @allure.severity(SeverityType.NORMAL)
     def test_add_to_favorites_chrome(self):
         use_case = AddToFavorites(browser=Browser.CHROME)
         use_case.execute()
 
-    @allure.story(make_story(Story.FOURTH, Browser.FIREFOX))
+    @allure.story(make_story(Story.THIRD, Browser.FIREFOX))
     @allure.severity(SeverityType.NORMAL)
     def test_add_to_favorites_firefox(self):
         use_case = AddToFavorites(browser=Browser.FIREFOX)
