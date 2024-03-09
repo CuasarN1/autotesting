@@ -53,7 +53,7 @@ class AddJewelryToCart(BaseUseCase):
             price_3, name_3 = self._select_and_add_to_cart(item=3)
 
         try:
-            assert not "В вашей корзине пока нет товаров" in str(self.driver.page_source)
+            assert "В вашей корзине пока нет товаров" not in str(self.driver.page_source)
         except AssertionError("Жанр картины - не реализм"):
             make_screenshot(browser=self.browser, driver=self.driver)
             raise

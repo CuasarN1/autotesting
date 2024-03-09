@@ -1,5 +1,6 @@
 import allure
 
+from tests.domain.use_cases.trolley_track_exists import TrolleyTrackExists
 from tests.domain.use_cases.style_is_realism import StyleIsRealism
 from tests.domain.use_cases.add_to_favorites import AddToFavorites
 from tests.domain.use_cases.include_giraffe import IncludeGiraffe
@@ -10,6 +11,18 @@ from tests.services.utils import make_story
 
 
 class TestUseCases:
+    @allure.story(make_story(Story.FIRST, Browser.CHROME))
+    @allure.severity(SeverityType.MINOR)
+    def test_trolley_track_exists_chrome(self):
+        use_case = TrolleyTrackExists(browser=Browser.CHROME)
+        use_case.execute()
+
+    @allure.story(make_story(Story.FIRST, Browser.FIREFOX))
+    @allure.severity(SeverityType.MINOR)
+    def test_trolley_track_exists_firefox(self):
+        use_case = TrolleyTrackExists(browser=Browser.FIREFOX)
+        use_case.execute()
+
     @allure.story(make_story(Story.SECOND, Browser.CHROME))
     @allure.severity(SeverityType.TRIVIAL)
     def test_style_is_realism_chrome(self):
