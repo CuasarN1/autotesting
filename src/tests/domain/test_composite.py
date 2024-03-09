@@ -1,5 +1,6 @@
 import allure
 
+from tests.domain.use_cases.style_is_realism import StyleIsRealism
 from tests.domain.use_cases.add_to_favorites import AddToFavorites
 from tests.domain.use_cases.include_giraffe import IncludeGiraffe
 from tests.domain.use_cases.add_jewelry_to_cart import AddJewelryToCart
@@ -9,6 +10,18 @@ from tests.services.utils import make_story
 
 
 class TestUseCases:
+    @allure.story(make_story(Story.SECOND, Browser.CHROME))
+    @allure.severity(SeverityType.TRIVIAL)
+    def test_style_is_realism_chrome(self):
+        use_case = StyleIsRealism(browser=Browser.CHROME)
+        use_case.execute()
+
+    @allure.story(make_story(Story.SECOND, Browser.FIREFOX))
+    @allure.severity(SeverityType.TRIVIAL)
+    def test_style_is_realism_firefox(self):
+        use_case = StyleIsRealism(browser=Browser.FIREFOX)
+        use_case.execute()
+
     @allure.story(make_story(Story.THIRD, Browser.CHROME))
     @allure.severity(SeverityType.NORMAL)
     def test_add_to_favorites_chrome(self):

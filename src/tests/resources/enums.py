@@ -41,3 +41,5 @@ class AllureStep(str, Enum):
     MAKE_DRIVER = 'make driver'
     MAKE_SCREENSHOT = 'make screenshot'
     OPEN_DROP_DOWN_LIST = 'open drop down list'
+    GO_TO_PAINTINGS = 'go to paintings'
+    CHOOSE_GENRE = 'choose genre'
